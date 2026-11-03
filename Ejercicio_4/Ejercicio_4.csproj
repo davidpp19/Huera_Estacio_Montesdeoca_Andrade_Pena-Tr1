@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelos\Bebida.cs" />
     <Compile Include="Modelos\Ingrediente.cs" />
     <Compile Include="Modelos\IngredienteReceta.cs" />
     <Compile Include="Modelos\Plato.cs" />
+    <Compile Include="Modelos\RegistroAbastecimiento.cs" />
+    <Compile Include="Modelos\RegistroVenta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
