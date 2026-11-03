@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelos\Ingrediente.cs" />
+    <Compile Include="Modelos\IngredienteReceta.cs" />
+    <Compile Include="Modelos\Plato.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
