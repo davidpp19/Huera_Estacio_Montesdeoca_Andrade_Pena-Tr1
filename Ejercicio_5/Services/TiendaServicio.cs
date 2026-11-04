@@ -1,8 +1,9 @@
 ﻿
+using Ejercicio_5.Models;
+using Ejercicio_5.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ejercicio_5.Models;
 
 namespace Ejercicio_5.Servicios
 {
@@ -364,6 +365,41 @@ namespace Ejercicio_5.Servicios
                     lote.CantidadDisponible);
                 Console.WriteLine("----------------------------");
             }
+        }
+        // Guardar información de la tienda en JSON
+        public void GuardarDatos(string ruta)
+        {
+            DatosTienda datos = new DatosTienda
+            {
+                Artesanos = artesanos,
+                Artesanias = artesanias,
+                Lotes = lotes,
+                Movimientos = movimientos
+            };
+
+            ArchivoServicio archivo = new ArchivoServicio();
+
+            archivo.Guardar(ruta, datos);
+        }
+
+        // Recuperar información desde JSON
+        public void CargarDatos(string ruta)
+        {
+            ArchivoServicio archivo = new ArchivoServicio();
+
+            DatosTienda datos = archivo.Cargar(ruta);
+
+            // Limpiar información anterior
+            artesanos.Clear();
+            artesanias.Clear();
+            lotes.Clear();
+            movimientos.Clear();
+
+            // Recuperar los datos
+            artesanos.AddRange(datos.Artesanos);
+            artesanias.AddRange(datos.Artesanias);
+            lotes.AddRange(datos.Lotes);
+            movimientos.AddRange(datos.Movimientos);
         }
 
 
