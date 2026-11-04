@@ -41,28 +41,30 @@ namespace Ejercicio_4
                 Console.WriteLine("CAFETERIA UTN: ");
                 Console.WriteLine("1. Agregar Ingrediente nuevo");
                 Console.WriteLine("2. Agregar Plato nuevo (y armar receta)");
-                Console.WriteLine("3. Vender Plato");
-                Console.WriteLine("4. Reporte: Costo, precio y margen de cada plato");
-                Console.WriteLine("5. Reporte: Lista de compras (Stock mínimo)");
-                Console.WriteLine("6. Reporte: Platos que se pueden preparar");
-                Console.WriteLine("7. Reporte: Platos mas vendidos en un periodo");
-                Console.WriteLine("8. Reporte: Auditoria del stock");
-                Console.WriteLine("9. Eliminar Ingrediente ");
-                Console.WriteLine("10. Guardar y Salir");
+                Console.WriteLine("3. Abastecer Ingrediente (Sumar stock)");
+                Console.WriteLine("4. Vender Plato");
+                Console.WriteLine("5. Reporte: Costo, precio y margen de cada plato");
+                Console.WriteLine("6. Reporte: Lista de compras (Stock mínimo)");
+                Console.WriteLine("7. Reporte: Platos que se pueden preparar");
+                Console.WriteLine("8. Reporte: Platos mas vendidos en un periodo");
+                Console.WriteLine("9. Reporte: Auditoria del stock");
+                Console.WriteLine("10. Eliminar Ingrediente ");
+                Console.WriteLine("11. Guardar y Salir");
                 Console.Write("Seleccione una opcion: ");
 
                 string opcion = Console.ReadLine();
 
                 if (opcion == "1") { AgregarIngrediente(); }
                 else if (opcion == "2") { AgregarPlato(); }
-                else if (opcion == "3") { RealizarVenta(); }
-                else if (opcion == "4") { ReporteCostoPrecioMargen(); }
-                else if (opcion == "5") { ReporteListaCompras(); }
-                else if (opcion == "6") { ReportePlatosPosibles(); }
-                else if (opcion == "7") { ReporteMasVendidos(); }
-                else if (opcion == "8") { ReporteAuditoria(); }
-                else if (opcion == "9") { EliminarIngredientePrueba(); }
-                else if (opcion == "10")
+                else if (opcion == "3") { AbastecerInventario(); }
+                else if (opcion == "4") { RealizarVenta(); }
+                else if (opcion == "5") { ReporteCostoPrecioMargen(); }
+                else if (opcion == "6") { ReporteListaCompras(); }
+                else if (opcion == "7") { ReportePlatosPosibles(); }
+                else if (opcion == "8") { ReporteMasVendidos(); }
+                else if (opcion == "9") { ReporteAuditoria(); }
+                else if (opcion == "10") { EliminarIngredientePrueba(); }
+                else if (opcion == "11")
                 {
                     GuardarTodo();
                     salir = true;
@@ -329,6 +331,51 @@ namespace Ejercicio_4
                 Console.WriteLine("No se guardo el plato porque no se agregaron ingredientes a su receta.");
             }
             GuardarTodo();
+        }
+
+        private void AbastecerInventario()
+        {
+            Console.WriteLine("\nABASTECER INGREDIENTE: ");
+            if (listaIngredientes.Count == 0)
+            {
+                Console.WriteLine("No hay ingredientes registrados.");
+                return;
+            }
+
+            Console.WriteLine("Ingredientes disponibles:");
+            for (int i = 0; i < listaIngredientes.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {listaIngredientes[i].nombreIngrediente} (Stock actual: {listaIngredientes[i].stockActual} {listaIngredientes[i].unidadMedida})");
+            }
+
+            Console.Write("Seleccione el numero del ingrediente a abastecer: ");
+            string entrada = Console.ReadLine();
+            int indice = int.Parse(entrada) - 1;
+
+            if (indice >= 0 && indice < listaIngredientes.Count)
+            {
+                Ingrediente ingElegido = listaIngredientes[indice];
+
+                Console.Write($"Cuanta cantidad de '{ingElegido.nombreIngrediente}' va a ingresar?: ");
+                double cantidad = double.Parse(Console.ReadLine());
+
+                servicioInventario.AbastecerIngrediente(ingElegido, cantidad);
+
+                RegistroAbastecimiento nuevoRegistro = new RegistroAbastecimiento();
+                nuevoRegistro.nombreIngredienteBebida = ingElegido.nombreIngrediente;
+                nuevoRegistro.cantidadIngresada = cantidad;
+                nuevoRegistro.fechaAbastecimiento = DateTime.Now;
+
+                listaAbastecimientos.Add(nuevoRegistro);
+
+                Console.WriteLine($"Abastecimiento exitoso. El nuevo stock de {ingElegido.nombreIngrediente} es: {ingElegido.stockActual} {ingElegido.unidadMedida}.");
+
+                GuardarTodo();
+            }
+            else
+            {
+                Console.WriteLine("Opcion invalida.");
+            }
         }
     }
 }
