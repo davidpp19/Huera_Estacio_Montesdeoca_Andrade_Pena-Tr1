@@ -12,7 +12,7 @@ La solución contiene varios proyectos de consola separados (uno por cada ejerci
 4. Selecciona la opción **"Establecer como proyecto de inicio"** (Set as Startup Project). Verás que el nombre del proyecto seleccionado se pone en negrita.
 5. Presiona la tecla `F5` o haz clic en el botón verde de **"Iniciar"** (Play) en la barra superior.
 
-**Nota sobre los datos de prueba:** Para el Ejercicio 4 (Cafetería), los archivos `.json` con los datos base consistentes entre sí[cite: 2] están configurados en Visual Studio para copiarse automáticamente al directorio de ejecución (`bin/Debug`) al momento de compilar. No se requiere configuración manual de rutas.
+**Nota sobre los datos de prueba:** Para el Ejercicio 4 (Cafetería), los archivos `.json` con los datos base consistentes entre sí están configurados en Visual Studio para copiarse automáticamente al directorio de ejecución (`bin/Debug`) al momento de compilar. No se requiere configuración manual de rutas.
 
 ## Diagramas de Clases
 Ejercicio 1: ``
