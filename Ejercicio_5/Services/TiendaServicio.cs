@@ -411,6 +411,31 @@ namespace Ejercicio_5.Servicios
                 .Sum(l => l.CantidadDisponible);
         }
 
+
+        public IReadOnlyList<Movimiento> ObtenerMovimientos()
+        {
+            return movimientos.AsReadOnly();
+        }
+
+        public IReadOnlyList<Artesano> ObtenerArtesanos()
+        {
+            return artesanos.AsReadOnly();
+        }
+
+
+        // Consultar las artesanías registradas
+        public IReadOnlyList<Artesania> ObtenerArtesanias()
+        {
+            return artesanias.AsReadOnly();
+        }
+
+        // Consultar los lotes registrados
+        public IReadOnlyList<LotesConsignacion> ObtenerLotes()
+        {
+            return lotes.AsReadOnly();
+        }
+
+
         // consultar cantidades registradas
         public int TotalArtesanos => artesanos.Count;
         public int TotalArtesanias => artesanias.Count;

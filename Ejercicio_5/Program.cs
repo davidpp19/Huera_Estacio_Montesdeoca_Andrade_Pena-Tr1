@@ -10,10 +10,12 @@ namespace Ejercicio_5
     {
         static void Main(string[] args)
         {
-            // Crear el servicio de la tienda
+            // Crear el servicio principal
             TiendaServicio tienda = new TiendaServicio();
 
-            // 1. REGISTRAR ARTESANO
+            // ==========================================
+            // 1. REGISTRAR ARTESANOS
+            // ==========================================
             Artesano artesano1 = new Artesano
             {
                 Id = 1,
@@ -23,7 +25,9 @@ namespace Ejercicio_5
 
             tienda.RegistrarArtesano(artesano1);
 
-            // 2. REGISTRAR ARTESANIA
+            // ==========================================
+            // 2. REGISTRAR ARTESANIAS
+            // ==========================================
             Artesania artesania1 = new Artesania
             {
                 Id = 1,
@@ -35,7 +39,9 @@ namespace Ejercicio_5
 
             tienda.RegistrarArtesania(artesania1);
 
+            // ==========================================
             // 3. RECIBIR ARTESANIAS
+            // ==========================================
             tienda.RecibirArtesania(
                 1,
                 artesania1.Id,
@@ -50,7 +56,9 @@ namespace Ejercicio_5
                 DateTime.Today
             );
 
+            // ==========================================
             // 4. MOSTRAR INFORMACION INICIAL
+            // ==========================================
             Console.WriteLine("=== TIENDA OTAVALO ===");
 
             Console.WriteLine("Artesanos registrados: " +
@@ -65,7 +73,9 @@ namespace Ejercicio_5
             Console.WriteLine("Movimientos registrados: " +
                 tienda.TotalMovimientos);
 
+            // ==========================================
             // 5. VENDER 3 PONCHOS
+            // ==========================================
             decimal totalVenta = tienda.VenderArtesania(1, 3);
 
             decimal comision =
@@ -92,7 +102,9 @@ namespace Ejercicio_5
             Console.WriteLine("Movimientos registrados: " +
                 tienda.TotalMovimientos);
 
+            // ==========================================
             // 6. VALIDAR STOCK INSUFICIENTE
+            // ==========================================
             Console.WriteLine("\n=== VALIDACION DE STOCK ===");
 
             try
@@ -110,7 +122,9 @@ namespace Ejercicio_5
             Console.WriteLine("Movimientos registrados: " +
                 tienda.TotalMovimientos);
 
+            // ==========================================
             // 7. DEVOLVER 2 PONCHOS
+            // ==========================================
             Console.WriteLine("\n=== DEVOLUCION DE ARTESANIAS ===");
 
             tienda.DevolverArtesania(1, 1, 2);
@@ -123,7 +137,9 @@ namespace Ejercicio_5
             Console.WriteLine("Movimientos registrados: " +
                 tienda.TotalMovimientos);
 
+            // ==========================================
             // 8. VALIDAR PROPIETARIO
+            // ==========================================
             Console.WriteLine("\n=== VALIDACION DE PROPIETARIO ===");
 
             try
@@ -141,7 +157,9 @@ namespace Ejercicio_5
             Console.WriteLine("Movimientos registrados: " +
                 tienda.TotalMovimientos);
 
+            // ==========================================
             // 9. VALIDAR ELIMINACION DE ARTESANO
+            // ==========================================
             Console.WriteLine("\n=== ELIMINAR ARTESANO ===");
 
             try
@@ -156,7 +174,9 @@ namespace Ejercicio_5
             Console.WriteLine("Artesanos registrados: " +
                 tienda.TotalArtesanos);
 
+            // ==========================================
             // 10. VALIDAR ELIMINACION DE ARTESANIA
+            // ==========================================
             Console.WriteLine("\n=== ELIMINAR ARTESANIA ===");
 
             try
@@ -171,10 +191,12 @@ namespace Ejercicio_5
             Console.WriteLine("Artesanías registradas: " +
                 tienda.TotalArtesanias);
 
-            // 11. PROBAR ELIMINACION PERMITIDA
+            // ==========================================
+            // 11. PROBAR ELIMINACIONES PERMITIDAS
+            // ==========================================
             Console.WriteLine("\n=== ELIMINACION PERMITIDA ===");
 
-            // Crear artesano sin artesanías
+            // Artesano sin artesanías
             Artesano artesano2 = new Artesano
             {
                 Id = 2,
@@ -190,7 +212,7 @@ namespace Ejercicio_5
             Console.WriteLine("Artesanos restantes: " +
                 tienda.TotalArtesanos);
 
-            // Crear artesanía sin movimientos
+            // Artesanía sin movimientos
             Artesania artesania2 = new Artesania
             {
                 Id = 2,
@@ -208,10 +230,69 @@ namespace Ejercicio_5
             Console.WriteLine("Artesanías restantes: " +
                 tienda.TotalArtesanias);
 
-            // 12. ARTESANIAS CON MAS DE 90 DIAS
-            tienda.MostrarArtesaniasParaDevolucion();
+            // ==========================================
+            // 12. REGISTRAR OTRO ARTESANO
+            // PARA PROBAR LOS REPORTES
+            // ==========================================
+            Console.WriteLine("\n=== REGISTRO DE ARTESANO DE AGATO ===");
 
-            // 13. GUARDAR INFORMACION EN JSON
+            Artesano artesano3 = new Artesano
+            {
+                Id = 3,
+                Nombre = "Maria",
+                Comunidad = "Agato"
+            };
+
+            tienda.RegistrarArtesano(artesano3);
+
+            Artesania artesania3 = new Artesania
+            {
+                Id = 3,
+                Nombre = "Figura de madera",
+                Tipo = TipoArtesania.TallaMadera,
+                PrecioVenta = 40.00m,
+                ArtesanoId = artesano3.Id
+            };
+
+            tienda.RegistrarArtesania(artesania3);
+
+            // Recibir 4 figuras de madera
+            tienda.RecibirArtesania(
+                3,
+                artesania3.Id,
+                4,
+                DateTime.Today
+            );
+
+            // Vender 2 figuras
+            decimal ventaMadera =
+                tienda.VenderArtesania(3, 2);
+
+            decimal comisionMadera =
+                artesania3.ObtenerComision() * 2;
+
+            decimal pagoMadera =
+                ventaMadera - comisionMadera;
+
+            Console.WriteLine("Artesano: " + artesano3.Nombre);
+            Console.WriteLine("Comunidad: " + artesano3.Comunidad);
+            Console.WriteLine("Producto: " + artesania3.Nombre);
+
+            Console.WriteLine("Total vendido: $" +
+                ventaMadera.ToString("F2"));
+
+            Console.WriteLine("Comisión tienda (25%): $" +
+                comisionMadera.ToString("F2"));
+
+            Console.WriteLine("Pago artesano: $" +
+                pagoMadera.ToString("F2"));
+
+            Console.WriteLine("Stock restante: " +
+                tienda.ObtenerStock(3));
+
+            // ==========================================
+            // 13. GUARDAR DATOS EN JSON
+            // ==========================================
             Console.WriteLine("\n=== GUARDAR INFORMACION ===");
 
             string ruta = Path.Combine(
@@ -225,7 +306,9 @@ namespace Ejercicio_5
             Console.WriteLine("Datos guardados correctamente.");
             Console.WriteLine("Ubicación: " + ruta);
 
-            // 14. RECUPERAR INFORMACION DEL JSON
+            // ==========================================
+            // 14. RECUPERAR DATOS DESDE JSON
+            // ==========================================
             Console.WriteLine("\n=== RECUPERAR INFORMACION ===");
 
             TiendaServicio tiendaRecuperada =
@@ -239,15 +322,75 @@ namespace Ejercicio_5
             Console.WriteLine("Artesanías recuperadas: " +
                 tiendaRecuperada.TotalArtesanias);
 
-            Console.WriteLine("Stock recuperado: " +
+            Console.WriteLine("Stock de ponchos: " +
                 tiendaRecuperada.ObtenerStock(1));
+
+            Console.WriteLine("Stock de figuras: " +
+                tiendaRecuperada.ObtenerStock(3));
 
             Console.WriteLine("Movimientos recuperados: " +
                 tiendaRecuperada.TotalMovimientos);
 
-            // 15. FINALIZAR PROGRAMA
+            // ==========================================
+            // 15. CREAR SERVICIO DE REPORTES
+            // ==========================================
+            ReporteServicio reportes =
+                new ReporteServicio(tiendaRecuperada);
+
+            DateTime fechaInicio =
+                DateTime.Today.AddDays(-30);
+
+            DateTime fechaFin =
+                DateTime.Today;
+
+            // ==========================================
+            // 16. REPORTE 1: LIQUIDACION
+            // ==========================================
+            reportes.MostrarLiquidacion(
+                1,
+                fechaInicio,
+                fechaFin
+            );
+
+            // Liquidación de María
+            reportes.MostrarLiquidacion(
+                3,
+                fechaInicio,
+                fechaFin
+            );
+
+            // ==========================================
+            // 17. REPORTE 2: DEVOLUCIONES PENDIENTES
+            // ==========================================
+            reportes.MostrarPendientesDevolucion();
+
+            // ==========================================
+            // 18. REPORTE 3: COMUNIDADES CON MAS VENTAS
+            // ==========================================
+            reportes.MostrarComunidadesConMasVentas(
+                fechaInicio,
+                fechaFin
+            );
+
+            // ==========================================
+            // 19. REPORTE 4: ARTESANIAS MAS VENDIDAS
+            // ==========================================
+            reportes.MostrarArtesaniasMasVendidas(
+                fechaInicio,
+                fechaFin
+            );
+
+            // ==========================================
+            // 20. REPORTE 5: AUDITORIA DE INVENTARIO
+            // ==========================================
+            reportes.MostrarAuditoriaInventario();
+
+            // ==========================================
+            // 21. FINALIZAR PROGRAMA
+            // ==========================================
             Console.WriteLine("\n=== PRUEBAS FINALIZADAS ===");
             Console.WriteLine("Presiona una tecla para salir...");
+
             Console.ReadKey();
         }
     }
