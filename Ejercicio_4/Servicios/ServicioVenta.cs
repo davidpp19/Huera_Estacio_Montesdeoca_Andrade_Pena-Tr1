@@ -9,23 +9,37 @@ namespace Ejercicio_4.Servicios
 {
     public class ServicioVenta
     {
-        public bool VenderPlato(Plato platoVendido, int cantidadVendida, List<RegistroVenta> listaVentas)
+        public bool VenderPlato(Plato platoVendido, int cantidadVendida, List<RegistroVenta> listaVentas, List<Ingrediente> listaIngredientes)
         {
             foreach (IngredienteReceta ingrediente in platoVendido.receta)
             {
                 double cantidadNecesaria = ingrediente.cantidadUsada * cantidadVendida;
-                if (ingrediente.ingredienteBase.stockActual < cantidadNecesaria)
+
+                foreach (Ingrediente ingredienteGlobal in listaIngredientes)
                 {
-                    return false;
+                    if (ingredienteGlobal.nombreIngrediente == ingrediente.ingredienteBase.nombreIngrediente)
+                    {
+                        if (ingredienteGlobal.stockActual < cantidadNecesaria)
+                        {
+                            return false;
+                        }
+                    }
                 }
             }
 
             foreach (IngredienteReceta ingrediente in platoVendido.receta)
             {
                 double cantidadADescontar = ingrediente.cantidadUsada * cantidadVendida;
-                ingrediente.ingredienteBase.stockActual = ingrediente.ingredienteBase.stockActual - cantidadADescontar;
-            }
 
+                foreach (Ingrediente ingredienteGlobal in listaIngredientes)
+                {
+                    if (ingredienteGlobal.nombreIngrediente == ingrediente.ingredienteBase.nombreIngrediente)
+                    {
+                        ingredienteGlobal.stockActual = ingredienteGlobal.stockActual - cantidadADescontar;
+                        ingrediente.ingredienteBase.stockActual = ingredienteGlobal.stockActual; 
+                    }
+                }
+            }
             RegistroVenta nuevaVenta = new RegistroVenta();
             nuevaVenta.nombreProducto = platoVendido.nombrePlato;
             nuevaVenta.cantidadVendida = cantidadVendida;
@@ -33,7 +47,6 @@ namespace Ejercicio_4.Servicios
             nuevaVenta.fechaVenta = DateTime.Now;
 
             listaVentas.Add(nuevaVenta);
-
             return true;
         }
         public bool VenderBebida(Bebida bebidaVendida, int cantidadVendida, List<RegistroVenta> listaVentas)
