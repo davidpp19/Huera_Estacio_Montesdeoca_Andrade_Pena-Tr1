@@ -17,7 +17,7 @@ La solución contiene varios proyectos de consola separados (uno por cada ejerci
 ## Diagramas de Clases
 Ejercicio 1: `https://drive.google.com/file/d/1w5zVfBggiUak-Ru8lJazY6Yt9unrWkVs/view?usp=sharing`
 
-Ejercicio 2: ``
+Ejercicio 2: `https://drive.google.com/drive/folders/1sXHUoPBacmOPS_bxSGm1EkTXBheduwJI?usp=sharing`
 
 Ejercicio 3: `https://drive.google.com/file/d/15wkT1crs9Y4eg7dsPre4n8MkYOeIMbxV/view?usp=sharing`
 
