@@ -15,3 +15,5 @@ La solución contiene varios proyectos de consola separados (uno por cada ejerci
 **Nota sobre los datos de prueba:** Para el Ejercicio 4 (Cafetería), los archivos `.json` con los datos base consistentes entre sí[cite: 2] están configurados en Visual Studio para copiarse automáticamente al directorio de ejecución (`bin/Debug`) al momento de compilar. No se requiere configuración manual de rutas.
 
 ## Diagramas de Clases
+
+Ejercicio 4: `https://drive.google.com/file/d/1MhvSZf9AJTYh61QqZb3nqT_CN3cFi_8p/view?usp=sharing`
