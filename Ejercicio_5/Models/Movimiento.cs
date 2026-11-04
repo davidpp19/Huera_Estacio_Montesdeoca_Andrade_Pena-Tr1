@@ -12,7 +12,7 @@ namespace Ejercicio_5.Models
         Venta,
         Devolucion
     }
-    internal class Movimiento
+    public class Movimiento
     {
         public int Id { get; set; }
         public int ArtesaniaId { get; set; }

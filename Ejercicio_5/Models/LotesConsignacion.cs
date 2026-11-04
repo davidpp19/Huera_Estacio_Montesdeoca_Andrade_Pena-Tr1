@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio_5.Models
 {
-    internal class LotesConsignacion
+    public class LotesConsignacion
     {
         public int Id { get; set; }
         public int ArtesaniaId { get; set; }
