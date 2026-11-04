@@ -28,10 +28,8 @@ namespace Ejercicio_3.Models
             Anulado = false;
         }
 
-        // Anula el boleto. Devuelve "" si todo salió bien, o el mensaje de error.
         public string Anular()
         {
-            // Regla: no se anula dos veces
             if (Anulado)
             {
                 return "El boleto ya fue anulado.";
@@ -47,10 +45,9 @@ namespace Ejercicio_3.Models
             Anulado = true;
             FechaAnulacion = DateTime.Now;
 
-            // El asiento vuelve a quedar libre
             Viaje.Asientos[Asiento] = null;
 
-            return "";
+            return "Boleto Anulado";
         }
     }
 }
