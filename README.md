@@ -16,7 +16,11 @@ La solución contiene varios proyectos de consola separados (uno por cada ejerci
 
 ## Diagramas de Clases
 Ejercicio 1: ``
+
 Ejercicio 2: ``
+
 Ejercicio 3: ``
+
 Ejercicio 4: `https://drive.google.com/file/d/1MhvSZf9AJTYh61QqZb3nqT_CN3cFi_8p/view?usp=sharing`
+
 Ejercicio 5: ``
