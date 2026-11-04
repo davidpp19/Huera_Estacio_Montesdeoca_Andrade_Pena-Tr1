@@ -47,7 +47,7 @@ namespace Ejercicio_3.Models
 
             Viaje.Asientos[Asiento] = null;
 
-            return "Boleto Anulado";
+            return "";
         }
     }
 }

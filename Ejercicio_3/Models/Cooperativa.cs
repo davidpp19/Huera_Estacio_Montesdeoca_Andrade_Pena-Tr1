@@ -58,7 +58,7 @@ namespace Ejercicio_3.Models
 
             viaje.Asientos[asiento] = b;   
             Boletos.Add(b);
-            return "Boleto Vendido";
+            return "";
         }
 
         public string AnularBoleto(int idBoleto)
