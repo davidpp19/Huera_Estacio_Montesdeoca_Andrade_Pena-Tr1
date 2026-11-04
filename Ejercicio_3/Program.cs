@@ -9,11 +9,11 @@ namespace Ejercicio_3
 {
     internal class Program
     {
-       
         static Cooperativa coop = new Cooperativa();
 
         static void Main(string[] args)
         {
+            CargadorDatos.Cargar(coop);
             string opcion = "";
 
             while (opcion != "0")
