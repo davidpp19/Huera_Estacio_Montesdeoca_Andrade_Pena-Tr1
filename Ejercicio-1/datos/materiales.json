@@ -1,0 +1,44 @@
+﻿[
+  {
+    "tipo": "LIBRO",
+    "codigo": "L001",
+    "titulo": "Programación en C#",
+    "ejemplares": 3
+  },
+  {
+    "tipo": "LIBRO",
+    "codigo": "L002",
+    "titulo": "Estructuras de Datos",
+    "ejemplares": 1
+  },
+  {
+    "tipo": "LIBRO",
+    "codigo": "L003",
+    "titulo": "Ingeniería de Software",
+    "ejemplares": 2
+  },
+  {
+    "tipo": "LIBRO",
+    "codigo": "L004",
+    "titulo": "Bases de Datos",
+    "ejemplares": 2
+  },
+  {
+    "tipo": "REVISTA",
+    "codigo": "R001",
+    "titulo": "Revista Ingeniería UTN N.º 12",
+    "ejemplares": 2
+  },
+  {
+    "tipo": "REVISTA",
+    "codigo": "R002",
+    "titulo": "Revista Ciencia y Tecnología N.º 45",
+    "ejemplares": 1
+  },
+  {
+    "tipo": "REVISTA",
+    "codigo": "R003",
+    "titulo": "Revista Innovación Educativa N.º 8",
+    "ejemplares": 3
+  }
+]
