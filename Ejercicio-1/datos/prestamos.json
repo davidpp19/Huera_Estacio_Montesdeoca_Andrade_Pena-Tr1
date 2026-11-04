@@ -1,0 +1,100 @@
+﻿[
+  {
+    "idUsuario": "U001",
+    "codigoMaterial": "L001",
+    "fechaPrestamo": "2026-09-01",
+    "fechaDevolucion": "2026-09-06",
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U002",
+    "codigoMaterial": "R001",
+    "fechaPrestamo": "2026-09-03",
+    "fechaDevolucion": "2026-09-09",
+    "multaPagada": true
+  },
+  {
+    "idUsuario": "U003",
+    "codigoMaterial": "L003",
+    "fechaPrestamo": "2026-09-10",
+    "fechaDevolucion": "2026-09-20",
+    "multaPagada": true
+  },
+  {
+    "idUsuario": "U001",
+    "codigoMaterial": "R003",
+    "fechaPrestamo": "2026-09-15",
+    "fechaDevolucion": "2026-09-18",
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U004",
+    "codigoMaterial": "L001",
+    "fechaPrestamo": "2026-10-01",
+    "fechaDevolucion": "2026-10-12",
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U002",
+    "codigoMaterial": "L001",
+    "fechaPrestamo": "2026-10-05",
+    "fechaDevolucion": "2026-10-10",
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U005",
+    "codigoMaterial": "R002",
+    "fechaPrestamo": "2026-10-10",
+    "fechaDevolucion": "2026-10-20",
+    "multaPagada": true
+  },
+  {
+    "idUsuario": "U001",
+    "codigoMaterial": "L001",
+    "fechaPrestamo": "2026-10-20",
+    "fechaDevolucion": null,
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U001",
+    "codigoMaterial": "L004",
+    "fechaPrestamo": "2026-10-22",
+    "fechaDevolucion": null,
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U003",
+    "codigoMaterial": "L002",
+    "fechaPrestamo": "2026-10-25",
+    "fechaDevolucion": null,
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U002",
+    "codigoMaterial": "R001",
+    "fechaPrestamo": "2026-10-30",
+    "fechaDevolucion": null,
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U005",
+    "codigoMaterial": "L001",
+    "fechaPrestamo": "2026-11-01",
+    "fechaDevolucion": null,
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U001",
+    "codigoMaterial": "R003",
+    "fechaPrestamo": "2026-11-02",
+    "fechaDevolucion": null,
+    "multaPagada": false
+  },
+  {
+    "idUsuario": "U003",
+    "codigoMaterial": "L003",
+    "fechaPrestamo": "2026-11-02",
+    "fechaDevolucion": null,
+    "multaPagada": false
+  }
+]

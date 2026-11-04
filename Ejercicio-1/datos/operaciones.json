@@ -1,0 +1,9 @@
+[
+  {
+    "tipo": "PRESTAR",
+    "idUsuario": "U002",
+    "codigoMaterial": "R003",
+    "idPrestamo": null,
+    "fecha": "2026-11-03"
+  }
+]
