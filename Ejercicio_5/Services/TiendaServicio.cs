@@ -1,0 +1,292 @@
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Ejercicio_5.Models;
+
+namespace Ejercicio_5.Servicios
+{
+    public class TiendaServicio
+    {
+        // listas para almacenar la información
+        private readonly List<Artesano> artesanos =
+            new List<Artesano>();
+
+        private readonly List<Artesania> artesanias =
+            new List<Artesania>();
+
+        private readonly List<LotesConsignacion> lotes =
+            new List<LotesConsignacion>();
+
+        private readonly List<Movimiento> movimientos =
+            new List<Movimiento>();
+
+        // primero registramos un artesano
+        public void RegistrarArtesano(Artesano artesano)
+        {
+            if (artesano == null ||
+                artesano.Id <= 0 ||
+                string.IsNullOrWhiteSpace(artesano.Nombre) ||
+                string.IsNullOrWhiteSpace(artesano.Comunidad))
+            {
+                throw new ArgumentException(
+                    "Datos del artesano no válidos.");
+            }
+
+            if (artesanos.Any(a => a.Id == artesano.Id))
+            {
+                throw new InvalidOperationException(
+                    "El artesano ya está registrado.");
+            }
+
+            artesanos.Add(artesano);
+        }
+
+        // segundo registramos la artesanía
+        public void RegistrarArtesania(Artesania artesania)
+        {
+            if (artesania == null ||
+                artesania.Id <= 0 ||
+                string.IsNullOrWhiteSpace(artesania.Nombre) ||
+                artesania.PrecioVenta <= 0 ||
+                !Enum.IsDefined(typeof(TipoArtesania),
+                                artesania.Tipo))
+            {
+                throw new ArgumentException(
+                    "Datos de la artesanía no válidos.");
+            }
+
+            if (!artesanos.Any(a => a.Id == artesania.ArtesanoId))
+            {
+                throw new InvalidOperationException(
+                    "El artesano propietario no existe.");
+            }
+
+            if (artesanias.Any(a => a.Id == artesania.Id))
+            {
+                throw new InvalidOperationException(
+                    "La artesanía ya está registrada.");
+            }
+
+            artesanias.Add(artesania);
+        }
+
+        // tercero recibimos la artesania
+        public void RecibirArtesania(
+            int idLote,
+            int artesaniaId,
+            int cantidad,
+            DateTime fecha)
+        {
+            if (idLote <= 0 || cantidad <= 0 ||
+                fecha.Date > DateTime.Today)
+            {
+                throw new ArgumentException(
+                    "Datos de recepción no válidos.");
+            }
+
+            Artesania artesania = artesanias.FirstOrDefault(
+                a => a.Id == artesaniaId);
+
+            if (artesania == null)
+            {
+                throw new InvalidOperationException(
+                    "La artesanía no existe.");
+            }
+
+            if (lotes.Any(l => l.Id == idLote))
+            {
+                throw new InvalidOperationException(
+                    "El lote ya está registrado.");
+            }
+
+            // crea el lote
+            LotesConsignacion lote = new LotesConsignacion
+            {
+                Id = idLote,
+                ArtesaniaId = artesaniaId,
+                FechaRecepcion = fecha,
+                CantidadRecibida = cantidad,
+                CantidadDisponible = cantidad
+            };
+
+            // registra la recepcion
+            Movimiento movimiento = new Movimiento
+            {
+                Id = movimientos.Count + 1,
+                ArtesaniaId = artesaniaId,
+                ArtesanoId = artesania.ArtesanoId,
+                LoteId = idLote,
+                Tipo = TipoMovimiento.Recepcion,
+                Fecha = fecha,
+                Cantidad = cantidad,
+                PrecioUnitario = artesania.PrecioVenta,
+                ComisionTotal = 0m
+            };
+
+            lotes.Add(lote);
+            movimientos.Add(movimiento);
+        }
+
+        public decimal VenderArtesania(int artesaniaId, int cantidad)
+        {
+            // Validar cantidad
+            if (cantidad <= 0)
+            {
+                throw new ArgumentException(
+                    "La cantidad debe ser mayor que cero.");
+            }
+
+            // Buscar artesanía
+            Artesania artesania = artesanias.FirstOrDefault(
+                a => a.Id == artesaniaId);
+
+            if (artesania == null)
+            {
+                throw new InvalidOperationException(
+                    "La artesanía no existe.");
+            }
+
+            // Verificar stock antes de vender
+            if (ObtenerStock(artesaniaId) < cantidad)
+            {
+                throw new InvalidOperationException(
+                    "No hay suficientes unidades disponibles.");
+            }
+
+            // Buscar lotes, comenzando por los más antiguos
+            var lotesDisponibles = lotes
+                .Where(l => l.ArtesaniaId == artesaniaId &&
+                            l.CantidadDisponible > 0)
+                .OrderBy(l => l.FechaRecepcion)
+                .ToList();
+
+            int cantidadPendiente = cantidad;
+
+            foreach (var lote in lotesDisponibles)
+            {
+                if (cantidadPendiente == 0)
+                    break;
+
+                int cantidadVender = Math.Min(
+                    cantidadPendiente,
+                    lote.CantidadDisponible);
+
+                // Descontar unidades
+                lote.Vender(cantidadVender);
+
+                // Registrar el movimiento
+                Movimiento movimiento = new Movimiento
+                {
+                    Id = movimientos.Count + 1,
+                    ArtesaniaId = artesaniaId,
+                    ArtesanoId = artesania.ArtesanoId,
+                    LoteId = lote.Id,
+                    Tipo = TipoMovimiento.Venta,
+                    Fecha = DateTime.Now,
+                    Cantidad = cantidadVender,
+                    PrecioUnitario = artesania.PrecioVenta,
+                    ComisionTotal =
+                        artesania.ObtenerComision() * cantidadVender
+                };
+
+                movimientos.Add(movimiento);
+
+                cantidadPendiente -= cantidadVender;
+            }
+
+            return artesania.PrecioVenta * cantidad;
+        }
+
+
+        public void DevolverArtesania(
+            int artesaniaId,
+            int artesanoId,
+            int cantidad)
+        {
+            // Validar cantidad
+            if (cantidad <= 0)
+            {
+                throw new ArgumentException(
+                    "La cantidad debe ser mayor que cero.");
+            }
+
+            // Buscar artesanía
+            Artesania artesania = artesanias.FirstOrDefault(
+                a => a.Id == artesaniaId);
+
+            if (artesania == null)
+            {
+                throw new InvalidOperationException(
+                    "La artesanía no existe.");
+            }
+
+            // Verificar propietario
+            if (artesania.ArtesanoId != artesanoId)
+            {
+                throw new InvalidOperationException(
+                    "La artesanía no pertenece a este artesano.");
+            }
+
+            // Verificar stock disponible
+            if (ObtenerStock(artesaniaId) < cantidad)
+            {
+                throw new InvalidOperationException(
+                    "No hay suficientes unidades para devolver.");
+            }
+
+            // Seleccionar primero los lotes más antiguos
+            var lotesDisponibles = lotes
+                .Where(l => l.ArtesaniaId == artesaniaId &&
+                            l.CantidadDisponible > 0)
+                .OrderBy(l => l.FechaRecepcion)
+                .ToList();
+
+            int cantidadPendiente = cantidad;
+
+            foreach (var lote in lotesDisponibles)
+            {
+                if (cantidadPendiente == 0)
+                    break;
+
+                int cantidadDevolver = Math.Min(
+                    cantidadPendiente,
+                    lote.CantidadDisponible);
+
+                // Descontar unidades del lote
+                lote.Devolver(cantidadDevolver);
+
+                // Registrar movimiento de devolución
+                Movimiento movimiento = new Movimiento
+                {
+                    Id = movimientos.Count + 1,
+                    ArtesaniaId = artesaniaId,
+                    ArtesanoId = artesanoId,
+                    LoteId = lote.Id,
+                    Tipo = TipoMovimiento.Devolucion,
+                    Fecha = DateTime.Now,
+                    Cantidad = cantidadDevolver,
+                    PrecioUnitario = artesania.PrecioVenta,
+                    ComisionTotal = 0m
+                };
+
+                movimientos.Add(movimiento);
+
+                cantidadPendiente -= cantidadDevolver;
+            }
+        }
+
+        // cuarto consultamos el inventario
+        public int ObtenerStock(int artesaniaId)
+        {
+            return lotes
+                .Where(l => l.ArtesaniaId == artesaniaId)
+                .Sum(l => l.CantidadDisponible);
+        }
+
+        // consultar cantidades registradas
+        public int TotalArtesanos => artesanos.Count;
+        public int TotalArtesanias => artesanias.Count;
+        public int TotalMovimientos => movimientos.Count;
+    }
+}
