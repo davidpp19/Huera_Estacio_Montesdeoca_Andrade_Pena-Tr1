@@ -46,6 +46,7 @@
     <Compile Include="Models\Boleto.cs" />
     <Compile Include="Models\Cooperativa.cs" />
     <Compile Include="Models\Pasajero.cs" />
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\Viaje.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
