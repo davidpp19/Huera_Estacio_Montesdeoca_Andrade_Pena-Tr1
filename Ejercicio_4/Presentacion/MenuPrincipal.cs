@@ -103,11 +103,12 @@ namespace Ejercicio_4
                 string entradaCantidad = Console.ReadLine();
                 int cantidad = int.Parse(entradaCantidad);
 
-                bool exito = servicioVentas.VenderPlato(platoElegido, cantidad, listaVentas);
+                bool exito = servicioVentas.VenderPlato(platoElegido, cantidad, listaVentas, listaIngredientes);
 
                 if (exito == true)
                 {
                     Console.WriteLine("Venta exitosa.");
+                    GuardarTodo();
                 }
                 else
                 {
@@ -262,6 +263,7 @@ namespace Ejercicio_4
 
             listaIngredientes.Add(nuevoIngrediente);
             Console.WriteLine($"Ingrediente '{nuevoIngrediente.nombreIngrediente}' agregado correctamente.");
+            GuardarTodo();
         }
 
         private void AgregarPlato()
@@ -307,8 +309,6 @@ namespace Ejercicio_4
                     nuevoItem.cantidadUsada = double.Parse(Console.ReadLine());
 
                     nuevoPlato.receta.Add(nuevoItem);
-
-                    // Marcamos el ingrediente para que no pueda ser eliminado
                     ingElegido.formaParteDeReceta = true;
 
                     Console.WriteLine("Ingrediente agregado a la receta.");
@@ -328,6 +328,7 @@ namespace Ejercicio_4
             {
                 Console.WriteLine("No se guardo el plato porque no se agregaron ingredientes a su receta.");
             }
+            GuardarTodo();
         }
     }
 }
