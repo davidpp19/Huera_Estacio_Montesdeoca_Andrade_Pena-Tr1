@@ -276,6 +276,97 @@ namespace Ejercicio_5.Servicios
             }
         }
 
+        public void EliminarArtesano(int artesanoId)
+        {
+            // Buscar al artesano
+            Artesano artesano = artesanos.FirstOrDefault(
+                a => a.Id == artesanoId);
+
+            if (artesano == null)
+            {
+                throw new InvalidOperationException(
+                    "El artesano no existe.");
+            }
+
+            // Verificar si tiene artesanías registradas
+            if (artesanias.Any(a => a.ArtesanoId == artesanoId))
+            {
+                throw new InvalidOperationException(
+                    "No se puede eliminar un artesano que tiene artesanías registradas.");
+            }
+
+            // Eliminar si no tiene artesanías
+            artesanos.Remove(artesano);
+        }
+
+
+        public void EliminarArtesania(int artesaniaId)
+        {
+            // Buscar la artesanía
+            Artesania artesania = artesanias.FirstOrDefault(
+                a => a.Id == artesaniaId);
+
+            if (artesania == null)
+            {
+                throw new InvalidOperationException(
+                    "La artesanía no existe.");
+            }
+
+            // Verificar movimientos registrados
+            if (movimientos.Any(m => m.ArtesaniaId == artesaniaId))
+            {
+                throw new InvalidOperationException(
+                    "No se puede eliminar una artesanía que tiene movimientos registrados.");
+            }
+
+            // Verificar lotes relacionados
+            if (lotes.Any(l => l.ArtesaniaId == artesaniaId))
+            {
+                throw new InvalidOperationException(
+                    "No se puede eliminar una artesanía que tiene lotes registrados.");
+            }
+
+            // Eliminar artesanía
+            artesanias.Remove(artesania);
+        }
+
+        public void MostrarArtesaniasParaDevolucion()
+        {
+            Console.WriteLine("\n=== ARTESANIAS PARA DEVOLUCION ===");
+
+            var lotesVencidos = lotes
+                .Where(l => l.DebeDevolverse())
+                .OrderBy(l => l.FechaRecepcion)
+                .ToList();
+
+            if (lotesVencidos.Count == 0)
+            {
+                Console.WriteLine("No hay artesanías pendientes de devolución.");
+                return;
+            }
+
+            foreach (var lote in lotesVencidos)
+            {
+                Artesania artesania = artesanias.First(
+                    a => a.Id == lote.ArtesaniaId);
+
+                Artesano artesano = artesanos.First(
+                    a => a.Id == artesania.ArtesanoId);
+
+                int dias = (DateTime.Today - lote.FechaRecepcion.Date).Days;
+
+                Console.WriteLine("Producto: " + artesania.Nombre);
+                Console.WriteLine("Artesano: " + artesano.Nombre);
+                Console.WriteLine("Comunidad: " + artesano.Comunidad);
+                Console.WriteLine("Lote: " + lote.Id);
+                Console.WriteLine("Días en tienda: " + dias);
+                Console.WriteLine("Unidades por devolver: " +
+                    lote.CantidadDisponible);
+                Console.WriteLine("----------------------------");
+            }
+        }
+
+
         // cuarto consultamos el inventario
         public int ObtenerStock(int artesaniaId)
         {

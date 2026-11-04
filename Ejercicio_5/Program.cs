@@ -130,6 +130,80 @@ namespace Ejercicio_5
 
             // Mantener abierta la consola
             Console.WriteLine("\nPresiona una tecla para salir...");
+
+            // 9. VALIDAR ELIMINACION DE ARTESANO
+            Console.WriteLine("\n=== ELIMINAR ARTESANO ===");
+
+            try
+            {
+                tienda.EliminarArtesano(1);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            Console.WriteLine("Artesanos registrados: " +
+                tienda.TotalArtesanos);
+
+
+            // 10. VALIDAR ELIMINACION DE ARTESANIA
+            Console.WriteLine("\n=== ELIMINAR ARTESANIA ===");
+
+            try
+            {
+                tienda.EliminarArtesania(1);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            Console.WriteLine("Artesanías registradas: " +
+                tienda.TotalArtesanias);
+
+
+            // 11. PROBAR ELIMINACION PERMITIDA
+            Console.WriteLine("\n=== ELIMINACION PERMITIDA ===");
+
+            // Registrar un artesano sin artesanías
+            Artesano artesano2 = new Artesano
+            {
+                Id = 2,
+                Nombre = "Carlos",
+                Comunidad = "Agato"
+            };
+
+            tienda.RegistrarArtesano(artesano2);
+
+            // Eliminar artesano sin artesanías
+            tienda.EliminarArtesano(2);
+
+            Console.WriteLine("Artesano sin productos eliminado.");
+            Console.WriteLine("Artesanos restantes: " +
+                tienda.TotalArtesanos);
+
+
+            // Registrar una artesanía sin movimientos
+            Artesania artesania2 = new Artesania
+            {
+                Id = 2,
+                Nombre = "Bufanda artesanal",
+                Tipo = TipoArtesania.Textil,
+                PrecioVenta = 15.00m,
+                ArtesanoId = 1
+            };
+
+            tienda.RegistrarArtesania(artesania2);
+
+            // Eliminar artesanía sin movimientos
+            tienda.EliminarArtesania(2);
+
+            Console.WriteLine("Artesanía sin movimientos eliminada.");
+            Console.WriteLine("Artesanías restantes: " +
+                tienda.TotalArtesanias);
+            // Mostrar lotes con más de 90 días
+            tienda.MostrarArtesaniasParaDevolucion();
             Console.ReadKey();
         }
     }
