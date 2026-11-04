@@ -1,0 +1,66 @@
+[
+  {
+    "IdViaje": 1,
+    "Nombre": "Ana Pérez",
+    "Cedula": "1000000001",
+    "TipoPasajero": "Regular",
+    "Asiento": 1,
+    "Anulado": false
+  },
+  {
+    "IdViaje": 1,
+    "Nombre": "Luis Mora",
+    "Cedula": "1000000002",
+    "TipoPasajero": "Tercera edad",
+    "Asiento": 2,
+    "Anulado": false
+  },
+  {
+    "IdViaje": 1,
+    "Nombre": "Carlos Andrade",
+    "Cedula": "1000000003",
+    "TipoPasajero": "Regular",
+    "Asiento": 3,
+    "Anulado": true
+  },
+  {
+    "IdViaje": 2,
+    "Nombre": "Rosa Díaz",
+    "Cedula": "1000000004",
+    "TipoPasajero": "Discapacidad",
+    "Asiento": 5,
+    "Anulado": false
+  },
+  {
+    "IdViaje": 2,
+    "Nombre": "María Torres",
+    "Cedula": "1000000005",
+    "TipoPasajero": "Regular",
+    "Asiento": 6,
+    "Anulado": false
+  },
+  {
+    "IdViaje": 3,
+    "Nombre": "Pedro Játiva",
+    "Cedula": "1000000006",
+    "TipoPasajero": "Regular",
+    "Asiento": 1,
+    "Anulado": false
+  },
+  {
+    "IdViaje": 3,
+    "Nombre": "Elena Cevallos",
+    "Cedula": "1000000007",
+    "TipoPasajero": "Tercera edad",
+    "Asiento": 2,
+    "Anulado": false
+  },
+  {
+    "IdViaje": 4,
+    "Nombre": "Jorge Ponce",
+    "Cedula": "1000000008",
+    "TipoPasajero": "Regular",
+    "Asiento": 10,
+    "Anulado": false
+  }
+]

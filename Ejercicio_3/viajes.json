@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "Ruta": "Ibarra-Quito",
+    "EsDirecto": true,
+    "Salida": "2027-03-15T06:00:00",
+    "Capacidad": 20,
+    "TarifaBase": 3.50
+  },
+  {
+    "Id": 2,
+    "Ruta": "Ibarra-Tulcán",
+    "EsDirecto": false,
+    "Salida": "2027-03-15T08:00:00",
+    "Capacidad": 16,
+    "TarifaBase": 3.00
+  },
+  {
+    "Id": 3,
+    "Ruta": "Ibarra-Otavalo",
+    "EsDirecto": true,
+    "Salida": "2027-03-16T10:00:00",
+    "Capacidad": 12,
+    "TarifaBase": 1.00
+  },
+  {
+    "Id": 4,
+    "Ruta": "Ibarra-Quito",
+    "EsDirecto": false,
+    "Salida": "2027-03-17T14:30:00",
+    "Capacidad": 20,
+    "TarifaBase": 3.50
+  },
+  {
+    "Id": 5,
+    "Ruta": "Ibarra-Tulcán",
+    "EsDirecto": true,
+    "Salida": "2026-10-01T07:00:00",
+    "Capacidad": 16,
+    "TarifaBase": 3.00
+  }
+]
