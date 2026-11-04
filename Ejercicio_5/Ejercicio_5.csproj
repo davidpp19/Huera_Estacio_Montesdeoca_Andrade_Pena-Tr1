@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Models\Artesania.cs" />
     <Compile Include="Models\Artesano.cs" />
+    <Compile Include="Models\LotesConsignacion.cs" />
+    <Compile Include="Models\Movimiento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
