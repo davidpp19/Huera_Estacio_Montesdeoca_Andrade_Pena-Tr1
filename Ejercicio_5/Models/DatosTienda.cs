@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio_5.Models
 {
-    internal class DatosTienda
+    public class DatosTienda
     {
         public List<Artesano> Artesanos { get; set; } = new List<Artesano>();
 
