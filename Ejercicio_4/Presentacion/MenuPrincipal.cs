@@ -55,7 +55,7 @@ namespace Ejercicio_4
 
                 if (opcion == "1") { AgregarIngrediente(); }
                 else if (opcion == "2") { AgregarPlato(); }
-                else if (opcion == "3") { RealizarVentaPrueba(); }
+                else if (opcion == "3") { RealizarVenta(); }
                 else if (opcion == "4") { ReporteCostoPrecioMargen(); }
                 else if (opcion == "5") { ReporteListaCompras(); }
                 else if (opcion == "6") { ReportePlatosPosibles(); }
@@ -76,28 +76,47 @@ namespace Ejercicio_4
             }
         }
 
-        private void RealizarVentaPrueba()
+        private void RealizarVenta()
         {
+            Console.WriteLine("\nREALIZAR VENTA: ");
             if (listaPlatos.Count == 0)
             {
                 Console.WriteLine("No hay platos registrados.");
                 return;
             }
 
-            Plato platoElegido = listaPlatos[0]; 
-            Console.Write($"Cuantos '{platoElegido.nombrePlato}' desea vender?: ");
-            string entrada = Console.ReadLine();
-            int cantidad = int.Parse(entrada);
-
-            bool exito = servicioVentas.VenderPlato(platoElegido, cantidad, listaVentas);
-
-            if (exito == true)
+            Console.WriteLine("Platos disponibles:");
+            for (int i = 0; i < listaPlatos.Count; i++)
             {
-                Console.WriteLine("Venta exitosa. Se descontaron los ingredientes.");
+                Console.WriteLine($"{i + 1}. {listaPlatos[i].nombrePlato}");
+            }
+
+            Console.Write("Seleccione el numero del plato a vender: ");
+            string entradaPlato = Console.ReadLine();
+            int indice = int.Parse(entradaPlato) - 1;
+
+            if (indice >= 0 && indice < listaPlatos.Count)
+            {
+                Plato platoElegido = listaPlatos[indice];
+
+                Console.Write($"Cuantos '{platoElegido.nombrePlato}' desea vender?: ");
+                string entradaCantidad = Console.ReadLine();
+                int cantidad = int.Parse(entradaCantidad);
+
+                bool exito = servicioVentas.VenderPlato(platoElegido, cantidad, listaVentas);
+
+                if (exito == true)
+                {
+                    Console.WriteLine("Venta exitosa.");
+                }
+                else
+                {
+                    Console.WriteLine("Venta rechazada. Falta stock de algun ingrediente.");
+                }
             }
             else
             {
-                Console.WriteLine("Venta rechazada. Falta stock de algun ingrediente en la receta.");
+                Console.WriteLine("Opcion invalida. Por favor, seleccione un numero de la lista.");
             }
         }
         private void ReporteCostoPrecioMargen()
