@@ -1,0 +1,127 @@
+{
+  "Artesanos": [
+    {
+      "Id": 1,
+      "Nombre": "Luis",
+      "Comunidad": "Peguche"
+    },
+    {
+      "Id": 3,
+      "Nombre": "Maria",
+      "Comunidad": "Agato"
+    }
+  ],
+  "Artesanias": [
+    {
+      "Id": 1,
+      "Nombre": "Poncho artesanal",
+      "Tipo": 0,
+      "PrecioVenta": 30.00,
+      "ArtesanoId": 1
+    },
+    {
+      "Id": 3,
+      "Nombre": "Figura de madera",
+      "Tipo": 1,
+      "PrecioVenta": 40.00,
+      "ArtesanoId": 3
+    }
+  ],
+  "Lotes": [
+    {
+      "Id": 1,
+      "ArtesaniaId": 1,
+      "FechaRecepcion": "2026-07-31T00:00:00-05:00",
+      "CantidadRecibida": 10,
+      "CantidadDisponible": 5,
+      "CantidadVendida": 3,
+      "CantidadDevuelta": 2
+    },
+    {
+      "Id": 2,
+      "ArtesaniaId": 1,
+      "FechaRecepcion": "2026-11-03T00:00:00-05:00",
+      "CantidadRecibida": 5,
+      "CantidadDisponible": 5,
+      "CantidadVendida": 0,
+      "CantidadDevuelta": 0
+    },
+    {
+      "Id": 3,
+      "ArtesaniaId": 3,
+      "FechaRecepcion": "2026-11-03T00:00:00-05:00",
+      "CantidadRecibida": 4,
+      "CantidadDisponible": 2,
+      "CantidadVendida": 2,
+      "CantidadDevuelta": 0
+    }
+  ],
+  "Movimientos": [
+    {
+      "Id": 1,
+      "ArtesaniaId": 1,
+      "ArtesanoId": 1,
+      "LoteId": 1,
+      "Tipo": 0,
+      "Fecha": "2026-07-31T00:00:00-05:00",
+      "Cantidad": 10,
+      "PrecioUnitario": 30.00,
+      "ComisionTotal": 0
+    },
+    {
+      "Id": 2,
+      "ArtesaniaId": 1,
+      "ArtesanoId": 1,
+      "LoteId": 2,
+      "Tipo": 0,
+      "Fecha": "2026-11-03T00:00:00-05:00",
+      "Cantidad": 5,
+      "PrecioUnitario": 30.00,
+      "ComisionTotal": 0
+    },
+    {
+      "Id": 3,
+      "ArtesaniaId": 1,
+      "ArtesanoId": 1,
+      "LoteId": 1,
+      "Tipo": 1,
+      "Fecha": "2026-11-03T21:19:33.3980535-05:00",
+      "Cantidad": 3,
+      "PrecioUnitario": 30.00,
+      "ComisionTotal": 18.0000
+    },
+    {
+      "Id": 4,
+      "ArtesaniaId": 1,
+      "ArtesanoId": 1,
+      "LoteId": 1,
+      "Tipo": 2,
+      "Fecha": "2026-11-03T21:19:33.403535-05:00",
+      "Cantidad": 2,
+      "PrecioUnitario": 30.00,
+      "ComisionTotal": 0
+    },
+    {
+      "Id": 5,
+      "ArtesaniaId": 3,
+      "ArtesanoId": 3,
+      "LoteId": 3,
+      "Tipo": 0,
+      "Fecha": "2026-11-03T00:00:00-05:00",
+      "Cantidad": 4,
+      "PrecioUnitario": 40.00,
+      "ComisionTotal": 0
+    },
+    {
+      "Id": 6,
+      "ArtesaniaId": 3,
+      "ArtesanoId": 3,
+      "LoteId": 3,
+      "Tipo": 1,
+      "Fecha": "2026-11-03T21:19:33.4119903-05:00",
+      "Cantidad": 2,
+      "PrecioUnitario": 40.00,
+      "ComisionTotal": 20.0000
+    }
+  ]
+}
