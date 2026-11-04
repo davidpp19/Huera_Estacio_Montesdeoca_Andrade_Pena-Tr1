@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ejercicio_4
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.Iniciar();
         }
     }
 }
