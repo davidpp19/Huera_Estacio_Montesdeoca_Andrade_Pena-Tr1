@@ -1,50 +1,23 @@
 [
   {
-    "nombrePlato": "Seco de Pollo",
-    "receta": [
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Arroz",
-          "unidadMedida": "kg",
-          "stockActual": 15.0,
-          "stockMinimo": 5.0,
-          "costoUnidad": 1.20,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.2
-      },
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Pollo",
-          "unidadMedida": "kg",
-          "stockActual": 8.0,
-          "stockMinimo": 3.0,
-          "costoUnidad": 3.50,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.25
-      }
-    ]
-  },
-  {
-    "nombrePlato": "Salchipapa Tradicional",
+    "nombrePlato": "Salchipapa Universitaria",
     "receta": [
       {
         "ingredienteBase": {
           "nombreIngrediente": "Papas",
           "unidadMedida": "kg",
-          "stockActual": 12.0,
-          "stockMinimo": 4.0,
+          "stockActual": 15.0,
+          "stockMinimo": 5.0,
           "costoUnidad": 0.80,
           "formaParteDeReceta": true
         },
-        "cantidadUsada": 0.35
+        "cantidadUsada": 0.30
       },
       {
         "ingredienteBase": {
           "nombreIngrediente": "Salchicha",
           "unidadMedida": "kg",
-          "stockActual": 5.0,
+          "stockActual": 6.0,
           "stockMinimo": 2.0,
           "costoUnidad": 4.00,
           "formaParteDeReceta": true
@@ -55,7 +28,7 @@
         "ingredienteBase": {
           "nombreIngrediente": "Aceite",
           "unidadMedida": "litros",
-          "stockActual": 4.0,
+          "stockActual": 5.0,
           "stockMinimo": 1.0,
           "costoUnidad": 2.50,
           "formaParteDeReceta": true
@@ -65,40 +38,67 @@
     ]
   },
   {
-    "nombrePlato": "Churrasco Ecuatoriano",
+    "nombrePlato": "Sandwich Caliente",
     "receta": [
       {
         "ingredienteBase": {
-          "nombreIngrediente": "Arroz",
+          "nombreIngrediente": "Pan",
           "unidadMedida": "kg",
-          "stockActual": 15.0,
-          "stockMinimo": 5.0,
-          "costoUnidad": 1.20,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.2
-      },
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Carne de res",
-          "unidadMedida": "kg",
-          "stockActual": 6.0,
+          "stockActual": 5.0,
           "stockMinimo": 2.0,
-          "costoUnidad": 5.50,
+          "costoUnidad": 2.00,
           "formaParteDeReceta": true
         },
-        "cantidadUsada": 0.25
+        "cantidadUsada": 0.10
       },
       {
         "ingredienteBase": {
-          "nombreIngrediente": "Papas",
+          "nombreIngrediente": "Jamon",
           "unidadMedida": "kg",
-          "stockActual": 12.0,
-          "stockMinimo": 4.0,
-          "costoUnidad": 0.80,
+          "stockActual": 3.0,
+          "stockMinimo": 1.0,
+          "costoUnidad": 6.00,
           "formaParteDeReceta": true
         },
-        "cantidadUsada": 0.15
+        "cantidadUsada": 0.05
+      },
+      {
+        "ingredienteBase": {
+          "nombreIngrediente": "Queso",
+          "unidadMedida": "kg",
+          "stockActual": 4.0,
+          "stockMinimo": 1.5,
+          "costoUnidad": 5.00,
+          "formaParteDeReceta": true
+        },
+        "cantidadUsada": 0.05
+      }
+    ]
+  },
+  {
+    "nombrePlato": "Capuchino",
+    "receta": [
+      {
+        "ingredienteBase": {
+          "nombreIngrediente": "Cafe en grano",
+          "unidadMedida": "kg",
+          "stockActual": 3.0,
+          "stockMinimo": 1.0,
+          "costoUnidad": 12.00,
+          "formaParteDeReceta": true
+        },
+        "cantidadUsada": 0.02
+      },
+      {
+        "ingredienteBase": {
+          "nombreIngrediente": "Leche",
+          "unidadMedida": "litros",
+          "stockActual": 10.0,
+          "stockMinimo": 3.0,
+          "costoUnidad": 1.00,
+          "formaParteDeReceta": true
+        },
+        "cantidadUsada": 0.20
       }
     ]
   }

@@ -1,105 +1,22 @@
 [
   {
-    "nombrePlato": "Seco de Pollo",
-    "receta": [
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Arroz",
-          "unidadMedida": "kg",
-          "stockActual": 15.0,
-          "stockMinimo": 5.0,
-          "costoUnidad": 1.20,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.2
-      },
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Pollo",
-          "unidadMedida": "kg",
-          "stockActual": 8.0,
-          "stockMinimo": 3.0,
-          "costoUnidad": 3.50,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.25
-      }
-    ]
+    "nombreBebida": "Agua Dasani",
+    "stockActual": 24,
+    "precioFijo": 0.50
   },
   {
-    "nombrePlato": "Salchipapa Tradicional",
-    "receta": [
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Papas",
-          "unidadMedida": "kg",
-          "stockActual": 12.0,
-          "stockMinimo": 4.0,
-          "costoUnidad": 0.80,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.35
-      },
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Salchicha",
-          "unidadMedida": "kg",
-          "stockActual": 5.0,
-          "stockMinimo": 2.0,
-          "costoUnidad": 4.00,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.15
-      },
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Aceite",
-          "unidadMedida": "litros",
-          "stockActual": 4.0,
-          "stockMinimo": 1.0,
-          "costoUnidad": 2.50,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.05
-      }
-    ]
+    "nombreBebida": "Jugo del Valle",
+    "stockActual": 15,
+    "precioFijo": 0.80
   },
   {
-    "nombrePlato": "Churrasco Ecuatoriano",
-    "receta": [
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Arroz",
-          "unidadMedida": "kg",
-          "stockActual": 15.0,
-          "stockMinimo": 5.0,
-          "costoUnidad": 1.20,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.2
-      },
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Carne de res",
-          "unidadMedida": "kg",
-          "stockActual": 6.0,
-          "stockMinimo": 2.0,
-          "costoUnidad": 5.50,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.25
-      },
-      {
-        "ingredienteBase": {
-          "nombreIngrediente": "Papas",
-          "unidadMedida": "kg",
-          "stockActual": 12.0,
-          "stockMinimo": 4.0,
-          "costoUnidad": 0.80,
-          "formaParteDeReceta": true
-        },
-        "cantidadUsada": 0.15
-      }
-    ]
+    "nombreBebida": "Gatorade",
+    "stockActual": 12,
+    "precioFijo": 1.25
+  },
+  {
+    "nombreBebida": "Te Helado Lipton",
+    "stockActual": 20,
+    "precioFijo": 1.00
   }
 ]

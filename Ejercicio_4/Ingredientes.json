@@ -1,50 +1,66 @@
 [
   {
-    "nombreIngrediente": "Arroz",
+    "nombreIngrediente": "Papas",
     "unidadMedida": "kg",
     "stockActual": 15.0,
     "stockMinimo": 5.0,
-    "costoUnidad": 1.20,
-    "formaParteDeReceta": true
-  },
-  {
-    "nombreIngrediente": "Pollo",
-    "unidadMedida": "kg",
-    "stockActual": 8.0,
-    "stockMinimo": 3.0,
-    "costoUnidad": 3.50,
-    "formaParteDeReceta": true
-  },
-  {
-    "nombreIngrediente": "Papas",
-    "unidadMedida": "kg",
-    "stockActual": 12.0,
-    "stockMinimo": 4.0,
     "costoUnidad": 0.80,
     "formaParteDeReceta": true
   },
   {
     "nombreIngrediente": "Salchicha",
     "unidadMedida": "kg",
-    "stockActual": 5.0,
+    "stockActual": 6.0,
     "stockMinimo": 2.0,
     "costoUnidad": 4.00,
     "formaParteDeReceta": true
   },
   {
-    "nombreIngrediente": "Carne de res",
-    "unidadMedida": "kg",
-    "stockActual": 6.0,
-    "stockMinimo": 2.0,
-    "costoUnidad": 5.50,
+    "nombreIngrediente": "Aceite",
+    "unidadMedida": "litros",
+    "stockActual": 5.0,
+    "stockMinimo": 1.0,
+    "costoUnidad": 2.50,
     "formaParteDeReceta": true
   },
   {
-    "nombreIngrediente": "Aceite",
-    "unidadMedida": "litros",
-    "stockActual": 4.0,
+    "nombreIngrediente": "Jamon",
+    "unidadMedida": "kg",
+    "stockActual": 3.0,
     "stockMinimo": 1.0,
-    "costoUnidad": 2.50,
+    "costoUnidad": 6.00,
+    "formaParteDeReceta": true
+  },
+  {
+    "nombreIngrediente": "Queso",
+    "unidadMedida": "kg",
+    "stockActual": 4.0,
+    "stockMinimo": 1.5,
+    "costoUnidad": 5.00,
+    "formaParteDeReceta": true
+  },
+  {
+    "nombreIngrediente": "Pan",
+    "unidadMedida": "kg",
+    "stockActual": 5.0,
+    "stockMinimo": 2.0,
+    "costoUnidad": 2.00,
+    "formaParteDeReceta": true
+  },
+  {
+    "nombreIngrediente": "Cafe en grano",
+    "unidadMedida": "kg",
+    "stockActual": 3.0,
+    "stockMinimo": 1.0,
+    "costoUnidad": 12.00,
+    "formaParteDeReceta": true
+  },
+  {
+    "nombreIngrediente": "Leche",
+    "unidadMedida": "litros",
+    "stockActual": 10.0,
+    "stockMinimo": 3.0,
+    "costoUnidad": 1.00,
     "formaParteDeReceta": true
   }
 ]
