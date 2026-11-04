@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\GestorArchivo.cs" />
-    <Compile Include="MenuPrincipal.cs" />
+    <Compile Include="Presentación\MenuPrincipal.cs" />
     <Compile Include="Modelos\Bebida.cs" />
     <Compile Include="Modelos\Ingrediente.cs" />
     <Compile Include="Modelos\IngredienteReceta.cs" />
